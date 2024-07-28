@@ -10,10 +10,9 @@ function AppLayout() {
 
   return (
     <div className="grid h-screen grid-rows-[auto_1fr_auto]">
-      {isLoading && <IsLoadingSpinner />}
       <Header />
-      <main className="mx-auto max-w-3xl overflow-y-auto">
-        <h1>Content</h1>
+      {isLoading && <IsLoadingSpinner />}
+      <main className="mx-auto w-full max-w-3xl overflow-y-auto px-5">
         <Outlet />
       </main>
       <CartOverview />
