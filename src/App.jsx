@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 
 import Home from "./ui/Home";
 import Menu, { loader as menuLoader } from "./features/menu/Menu";
@@ -27,6 +31,10 @@ const router = createBrowserRouter([
         path: "/app",
         element: <ProtectedRoute />,
         children: [
+          {
+            index: true,
+            element: <Navigate to="menu" />,
+          },
           {
             path: "menu",
             element: <Menu />,
@@ -70,7 +78,7 @@ function App() {
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, [username, cart]);
+  }, [username, cart, orders]);
 
   return <RouterProvider router={router} />;
 }
