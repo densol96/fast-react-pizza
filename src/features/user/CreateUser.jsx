@@ -14,7 +14,7 @@ function CreateUser() {
     e.preventDefault();
     if (!username) return alert("Please, enter the username!");
     dispatch(updateUsername(username));
-    navigate("/menu");
+    navigate("app/menu");
   }
 
   return (

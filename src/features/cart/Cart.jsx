@@ -14,7 +14,7 @@ function Cart() {
   if (cart.length === 0) return <EmptyCart />;
   return (
     <div className="px-4 py-3">
-      <LinkButton to="/menu">&larr; Back to menu</LinkButton>
+      <LinkButton to="/app/menu">&larr; Back to menu</LinkButton>
       <h2 className="mt-7 text-xl font-semibold">Your cart, {username}</h2>
       <ul className="mt-3 divide-y divide-stone-200 border-y border-stone-200">
         {cart.map((item) => (
@@ -22,7 +22,7 @@ function Cart() {
         ))}
       </ul>
       <div className="mt-6 space-x-2">
-        <Button to="/order/new" type="primary">
+        <Button to="/app/order/new" type="primary">
           Order pizzas
         </Button>
         <Button onClick={() => dispatch(clearCart())} type="secondary">

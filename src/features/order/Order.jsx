@@ -27,7 +27,7 @@ function Order() {
   const data = fetcher.data;
 
   useEffect(() => {
-    fetcher.load("/menu");
+    fetcher.load("/app/menu");
   }, []);
 
   return (
@@ -93,7 +93,6 @@ function Order() {
 }
 
 export async function loader({ params }) {
-  console.log("I run");
   return await getOrder(params.orderId);
 }
 
