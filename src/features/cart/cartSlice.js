@@ -4,6 +4,9 @@ const initialState = {
   cart: localStorage.getItem("cart")
     ? JSON.parse(localStorage.getItem("cart"))
     : [],
+  madeOrders: localStorage.getItem("orders")
+    ? JSON.parse(localStorage.getItem("orders"))
+    : [],
 };
 
 const cartSlice = createSlice({
@@ -33,6 +36,8 @@ const cartSlice = createSlice({
     },
     clearCart(state, action) {
       state.cart = [];
+      console.log(action.payload);
+      state.madeOrders.push(action.payload);
     },
   },
 });

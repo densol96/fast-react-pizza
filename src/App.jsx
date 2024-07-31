@@ -58,11 +58,13 @@ const router = createBrowserRouter([
 function App() {
   const username = useSelector((state) => state.user.username);
   const cart = useSelector((state) => state.cart.cart);
+  const orders = useSelector((state) => state.cart.madeOrders);
 
   useEffect(() => {
     const handleBeforeUnload = (e) => {
       localStorage.setItem("username", username);
       localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem("orders", JSON.stringify(orders));
     };
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => {

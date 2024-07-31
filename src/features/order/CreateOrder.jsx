@@ -131,7 +131,7 @@ export async function action({ request }) {
   if (Object.keys(errors).length > 0) return errors;
 
   const createdOrder = await createOrder(order);
-  store.dispatch(clearCart());
+  store.dispatch(clearCart(createdOrder.id));
   return redirect(`/app/order/${createdOrder.id}`);
 }
 
